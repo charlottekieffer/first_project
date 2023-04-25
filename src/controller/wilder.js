@@ -27,9 +27,9 @@ module.exports ={
     update: (req, res) => {
         dataSource
             .getRepository(Wilder)
-            .update(req.body)
+            .update({id :req.body.id}, {name :req.body.name})
             .then(() => {
-                res.send()
+                res.send("Updated wilder")
             })
             .catch(() => {
                 res.send("Error while updating wilder");
@@ -38,9 +38,9 @@ module.exports ={
     delete: (req, res) => {
         dataSource
             .getRepository(Wilder)
-            .delete(req.body)
+            .delete({name :req.body.name})
             .then(() => {
-                res.send()
+                res.send("Deleted wilder")
             })
             .catch(() => {
                 res.send("Error while deleting wilder");
