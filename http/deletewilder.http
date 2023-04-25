@@ -2,5 +2,5 @@ DELETE http://localhost:3000/api/wilder
 Content-Type: application/json
 
 {
-    "name": "First Wilder"
+    "name": "Charlotte Kieffer"
 }
