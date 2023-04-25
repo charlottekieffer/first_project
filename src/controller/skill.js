@@ -1,42 +1,43 @@
 const { dataSource } = require("../utils");
-const Wilder = require("../entity/Wilder");
+const Skill = require("../entity/Skill");
 
 module.exports ={
     create: async (req, res) => {
         try {
-          await dataSource.getRepository(Wilder).save(req.body);
-          res.send("Created wilder");
+          await dataSource.getRepository(Skill).save(req.body);
+          res.send("Created Skill");
         } catch (error) {
           console.log(error);
-          res.send("Error while creating wilder");
+          res.send("Error while creating Skill");
         }},
     find: async(req, res) => {
         try{
             const data = await dataSource
-                .getRepository(Wilder)
+                .getRepository(Skill)
                 .find();
                 res.send(data);
         } catch (error) {
             console.log(error);
-            res.send("Failed to find wilder");
+            res.send("Failed to find Skill");
         }},
     update: async(req, res) => {
         try{
         await dataSource
-            .getRepository(Wilder)
+            .getRepository(Skill)
             .update({id :req.body.id}, {name :req.body.name});
-            res.send("Updated wilder");
+            res.send("Updated Skill");
         } catch (error){
             console.log(error);
-            res.send("Failed to update wilder")
+            res.send("Failed to update Skill")
         }},
     delete: async(req, res) => {
         try {
         await dataSource
-            .getRepository(Wilder)
+            .getRepository(Skill)
             .delete({name :req.body.name});
-            res.send("Deleted wilder")
+            res.send("Deleted Skill")
         } catch {
             console.log(error);
-            res.send("Failed to delete wilder")
-        }}}
+            res.send("Failed to delete Skill")
+        }}
+    }
