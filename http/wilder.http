@@ -4,3 +4,21 @@ Content-Type: application/json
 {
     "name": "Jane Doe"
 }
+###
+GET http://localhost:3000/api/wilder
+
+###
+PUT http://localhost:3000/api/wilder
+Content-Type: application/json
+
+{
+    "id": "15",
+    "name": "Charlotte Kieffer"
+}
+###
+DELETE http://localhost:3000/api/wilder
+Content-Type: application/json
+
+{
+    "name": "Charlotte Kieffer"
+}
