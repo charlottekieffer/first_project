@@ -13,4 +13,37 @@ module.exports ={
                 res.send("Error while creating wilder");
             });
     },
+    find: (req, res) => {
+        dataSource
+            .getRepository(Wilder)
+            .find(req.body)
+            .then((data) => {
+                res.send(data)
+            })
+            .catch(() => {
+                res.send("Error while fetching wilder");
+            });
+    },
+    update: (req, res) => {
+        dataSource
+            .getRepository(Wilder)
+            .update(req.body)
+            .then(() => {
+                res.send()
+            })
+            .catch(() => {
+                res.send("Error while updating wilder");
+            });
+    },
+    delete: (req, res) => {
+        dataSource
+            .getRepository(Wilder)
+            .delete(req.body)
+            .then(() => {
+                res.send()
+            })
+            .catch(() => {
+                res.send("Error while deleting wilder");
+            });
+    },
 };
