@@ -2,7 +2,7 @@ POST http://localhost:3000/api/skill
 Content-Type: application/json
 
 {
-    "name": "PHP"
+    "name": "CSS"
 }
 ###
 GET http://localhost:3000/api/skill
@@ -12,7 +12,7 @@ PUT http://localhost:3000/api/skill
 Content-Type: application/json
 
 {
-    "id": "3",
+    "id": "4",
     "name": "CSS"
 }
 

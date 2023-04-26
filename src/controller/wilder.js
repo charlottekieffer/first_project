@@ -1,5 +1,6 @@
 const { dataSource } = require("../utils");
 const Wilder = require("../entity/Wilder");
+const Skill = require("../entity/Skill");
 
 module.exports ={
     create: async (req, res) => {
@@ -39,4 +40,26 @@ module.exports ={
         } catch {
             console.log(error);
             res.send("Failed to delete wilder")
-        }}}
+        }},
+  
+        addSkill: async (req, res) => {
+            try {
+                const wilderToUpdate = await dataSource
+                .getRepository(Wilder)
+                .findOneBy({name: req.body.wilderName});
+                console.log(wilderToUpdate);
+    
+                const skillToAdd = await dataSource
+                .getRepository(Skill)
+                .findOneBy({name: req.body.skillName});
+    
+                wilderToUpdate.skills = [...wilderToUpdate.skills, skillToAdd];
+                await dataSource.getRepository(Wilder).save(wilderToUpdate)
+                res.send("Skill added to wilder");
+    
+            }catch(error) {
+                    res.send("Error while creating skill");
+                }
+        }
+    
+    }
